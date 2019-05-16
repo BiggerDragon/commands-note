@@ -1,0 +1,4 @@
+cp <目标文件或目录> <生成的目录或文件>
+cp -r <source> <target> 递归复制文件或文件夹
+cp -rp <source> <target> 递归复制文件或文件夹并保留文件或文件夹属性
+scp sourecFile romoteUserName@remoteIp:remoteAddr远程拷贝

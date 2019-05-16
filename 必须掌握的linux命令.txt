@@ -1,0 +1,170 @@
+﻿作为开发人员必须要掌握的linux基本命令
+
+显示目录文件
+
+ls -l 详细信息显示
+ls -h 查看目录文件
+ls -a 显示所有文件，包括隐藏文件
+ls -d 查看目录属性
+
+查找文件 
+find / -name filename.txt ** 根据名称查找/目录下的filename.txt文件。 
+find . -name "*.xml" 递归查找所有的xml文件 
+find . -name "*.xml"|xargs grep "hello world" 递归查找所有文件内容中包含hello world的xml文件 
+grep -H 'spring' *.xml 查找所以有的包含spring的xml文件 
+find ./ -size 0 | xargs rm -f & 删除文件大小为零的文件 
+ls -l | grep '.jar' 查找当前目录中的所有jar文件 
+grep 'test' d* 显示所有以d开头的文件中包含test的行。 
+grep 'test' aa bb cc 显示在aa，bb，cc文件中匹配test的行。 
+grep '[a-z]\{5\}' aa 显示所有包含每个字符串至少有5个连续小写字符的字符串的行
+
+创建多级目录
+mkdir -p file
+
+删除多个空目录
+rmdir /tmp/file
+
+切换目录
+cd /tmp/hello/test 切换到指定目录
+cd ../ 切换到上一级目录
+cd /root 切换到超级用户目录
+
+当前工作目录 
+pwd
+
+复制多个文件或者目录 
+cp source dest 复制文件 
+cp -r sourceFolder targetFolder 递归复制整个文件夹 
+cp -rp sourceFolder targetFolder 递归复制整个文件夹并保留文件属性
+scp sourecFile romoteUserName@remoteIp:remoteAddr远程拷贝
+
+递归删除目录或文件
+rm -rf deleteFile 
+
+移动文件 
+mv /temp/movefile /targetFolder
+
+重命名 
+mv oldNameFile newNameFile
+
+创建文件
+touch file
+
+显示文件内容
+cat -n /etc/services 显示第几行文件内容
+
+分页显示文件内容
+more /etc/services
+空格或者f 翻页
+enter 换行
+q或者Q 退出
+
+显示文件后几行
+tail -f /etc/services
+-n 指定行数
+-f 动态显示文件末尾内容
+按ctrl+c退出
+
+查看文件头10行 
+head -n 10 example.txt
+
+查看文件尾10行 
+tail -n 10 example.txt
+
+查看日志类型文件 
+tail -f exmaple.log 这个命令会自动显示新增内容，屏幕只显示10行内容的（可设置）
+
+在文件中搜索指定字串
+grep：grep -iv[指定字串][文件]
+-i 不区分大小写
+-v 排除指定字串
+grep mysql /root/install.log
+
+压缩文件，压缩后格式.gz
+gzip boduo
+特点：1.只能压缩文件不能压缩目录2.不保留源文件
+
+解压缩.gz的压缩文件
+gunzip
+gunzip boduo
+
+打包目录，压缩后格式.tar.gz
+tar -zcvf Japan.tar.gz Japan
+-c 打包(create)
+-v 显示详细信息
+-f 指定文件名
+-z 打包同时压缩
+特点：1.既可以压缩文件也可以压缩文件2.保留文件
+
+解压缩.tar.gz的压缩文件
+tar -zxvf Japan.tar.gz
+-x 解包
+-v 显示详细信息
+-f 指定解压文件
+-z 解压缩
+
+列出压缩文件列表 
+tar -tzf test.tar.gz
+
+压缩文件或目录,压缩后格式.zip
+zip boduo.zip boduo 压缩文件
+zip -r Japan.zip Japan 压缩目录
+特点：1.既可以压缩文件也可以压缩文件2.保留文件
+
+解压缩.zip的压缩文件
+unzip boduo.zip
+
+压缩文件，压缩后格式.bz2
+bzip2 -k boduo 压缩文件后保留源文件
+tar -cjf Japan.tar.bz2 Japan 打包并压缩目录
+
+解压缩.bz2的压缩文件
+bunzip2 -k boduo.bz2 解压缩后保留源文件
+tar -xjf Japan.tar.bz2 解压缩bz2压缩文件
+
+切换用户 
+su -username
+
+修改文件权限 
+chmod 777 file.java //file.java的权限-rwxrwxrwx，r表示读、w表示写、x表示可执行
+使用超级管理员身份执行命令 
+sudo rm a.txt使用管理员身份删除文件
+
+查看一个程序是否运行 
+ps –ef|grep tomcat查看所有有关tomcat的进程
+
+终止线程 
+kill -9 19979 终止线程号位19979的进程
+
+查看端口占用情况 
+netstat -tunpl|grep 8080查看端口8080的使用情况
+
+查看端口属于哪个程序 
+lsof -i :8080
+
+查看进程 
+ps aux|grep java 查看java进程 
+ps aux查看所有进程 
+ps -ef | grep tomcat 查看tomcat进程 
+
+打印信息 
+echo $JAVA_HOME 打印java home环境变量的值
+
+linux下取进程占用cpu最高的前10个进程 
+ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head
+
+linux下取进程占用内存(MEM)最高的前10个进程 
+ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head
+
+文件下载 
+wget http://file.tgz 
+curl http://file.tgz
+
+将内容写入某个文件中
+echo "www.baidu.com" >> /tmp/test/test.txt
+
+df -h 查看分区使用状况
+du -ah 统计目录大小
+free -m 查看内存与缓存使用状况
+
+sudo -i 由跳板机状态跳转到linux命令状态
