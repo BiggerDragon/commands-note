@@ -1,5 +1,5 @@
 mv <oldName> <new Name>
-
+for example:
 
 10.32.75.144
 10.32.75.145
