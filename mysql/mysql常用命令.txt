@@ -1,0 +1,15 @@
+#服务启动与暂停
+net start mysql
+net stop mysql
+
+#windows下安装服务
+mysqld install
+
+#修改root密码
+mysqld --skip-grant-tables
+
+use mysql;
+update user set authentication_string=password("123") where user="root";
+flush privileges;
+
+update user set password_expired='N' where user='root';

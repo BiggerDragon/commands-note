@@ -1,0 +1,3 @@
+# 用户中心dubbo服务注册中心地址
+
+dubbo.registry.address.uc=zookeeper://196.55.0.128:2181?backup=196.55.0.129:2181,196.55.0.130:2181

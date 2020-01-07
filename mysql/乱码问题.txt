@@ -1,0 +1,12 @@
+查看数据库编码方式
+查看数据库字符集
+查看表的编码
+查看表的列的编码
+
+出现mysql乱码问题的可能原因:
+1.数据库字符集不是utf-8 对应character_set_database常量
+2.服务器字符集不是utf-8,对应character_set_server常量
+3.程序与数据库的连接不适用utf-8编码，对应character_set_connection常量
+
+运行:
+SHOW VARIABLES LIKE 'character_set_%';
