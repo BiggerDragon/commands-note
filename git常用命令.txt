@@ -1,0 +1,71 @@
+#设置账号和邮箱
+git config --global user.name "your name"
+git config --global user.email "邮箱"
+
+git add
+git commit -m "备注"
+git status
+git diff
+git log
+git log --pretty==oneline
+#回退到上一个版本
+git reset --hard head^
+#回退到上上个版本
+git reset --hard head^^
+#回退到某个版本号的版本
+git reset --hard +commit_id
+
+#版本回退多次后回复最新版本
+git reset --hard 版本号
+
+#撤销修改
+git checkout -- test.txt
+
+#删除文件
+rm text.txt(linux)
+#从版本库中删除
+git rm text.txt
+git commit -m "删除文件“
+
+#丢弃一个没有合并过的分支
+git branch -D <name>
+
+=====远程仓库
+#创建SSH Key(需要生成 id_rsa私钥 和 id_rsa.pub公钥 两个文件)
+ssh-keygen -t rsa -C "youremail@example.com"
+#登录github 设置SSH keys
+#关联远程仓库
+git remote add origin git@github.com:账户名
+
+#将本地内容推送至远程分支商
+git push -u origin 分支名称   #第一次推送分支所有内容
+git push origin 分支名字  #推送最新修改
+
+#查看远程仓库信息
+git remote
+git remote -v
+
+#克隆
+git clone 地址
+
+#创建分支，并切换过去
+git checkout -b 新分支的名字 //创建分支并切入分支
+或者
+git branch 分支名字
+git checkout 分支名字 #切换分支
+git branch #查看分支
+
+#合并分支
+git checkout -b dev
+git branch
+git add .
+git commit -m "体骄傲tet文件到dev分支"
+git checkout master #切换到主分支
+git merge dev #将dev分支的内容合并到master分支上
+git branch -d dev #删除分支
+
+#修改git颜色
+git config --global color.ui true
+
+
+
