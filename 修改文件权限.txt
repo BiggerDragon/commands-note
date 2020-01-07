@@ -1,3 +1,0 @@
-chmod 777 <文件> //-rwxrwxrwx
-
-sudo rm <文件> 
