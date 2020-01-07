@@ -1,4 +1,5 @@
 mv <oldName> <new Name>
+eg:mv 1.txt 2.txt
 
 
 10.32.75.144
