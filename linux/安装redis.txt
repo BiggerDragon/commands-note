@@ -1,0 +1,11 @@
+wget url
+
+下面就通过make来编译，make是自动编译，会根据Makefile中描述的内容来进行编译
+cd src
+为了使用方便，我们需要将这个几个文件加到/usr/local/bin目录下去。这个目录在Path下面的话，就可以直接执行这几个命令了。
+make install 安装
+
+部署
+
+下面通过在启动一个linux客户端，通过server-cli shutdown来关闭服务器。
+

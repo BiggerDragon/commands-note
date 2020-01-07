@@ -1,0 +1,6 @@
+//是否开启端口
+firewall-cmd --query-port=6379/tcp
+//开启端口
+firewall-cmd --zone=public --add-port=6379/tcp --permanent
+//重启防火墙
+firewall-cmd --reload
